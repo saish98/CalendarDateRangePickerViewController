@@ -39,7 +39,9 @@ public class CalendarDateRangePickerViewController: UICollectionViewController {
     public var dayFont = UIFont.systemFont(ofSize: 14)
     
     public var monthColor = UIColor(red: 66/255.0, green: 150/255.0, blue: 240/255.0, alpha: 1.0)
-
+    public var dateColor = UIColor(red: 66/255.0, green: 150/255.0, blue: 240/255.0, alpha: 1.0)
+    public var dayColor = UIColor(red: 66/255.0, green: 150/255.0, blue: 240/255.0, alpha: 1.0)
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         
@@ -105,6 +107,7 @@ extension CalendarDateRangePickerViewController {
         let blankItems = getWeekday(date: getFirstDateForSection(section: indexPath.section)) - 1
         if indexPath.item < 7 {
             cell.label.text = getWeekdayLabel(weekday: indexPath.item + 1)
+            cell.label.textColor = dayColor
         } else if indexPath.item < 7 + blankItems {
             cell.label.text = ""
         } else {
@@ -112,6 +115,7 @@ extension CalendarDateRangePickerViewController {
             let date = getDate(dayOfMonth: dayOfMonth, section: indexPath.section)
             cell.date = date
             cell.label.text = "\(dayOfMonth)"
+            cell.label.textColor = dateColor
             
             if isBefore(dateA: date, dateB: minimumDate) {
                 cell.disable()
@@ -144,7 +148,7 @@ extension CalendarDateRangePickerViewController {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerReuseIdentifier, for: indexPath) as! CalendarDateRangePickerHeaderView
-            headerView.label.text = getMonthLabel(date: getFirstDateForSection(section: indexPath.section))
+            headerView.label.text = getMonthLabel(date: getFirstDateForSection(section: indexPath.section)).uppercased()
             headerView.label.font = monthFont
             headerView.label.textColor = monthColor
             return headerView
