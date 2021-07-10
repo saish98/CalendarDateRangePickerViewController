@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CalendarDateRangePickerViewController'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A calendar date range picker view controller in Swift for iOS.'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ This is a calendar date range picker view controller written in Swift for iOS. T
   s.source           = { :git => 'https://github.com/miraan/CalendarDateRangePickerViewController.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '12.0'
 
   s.source_files = 'CalendarDateRangePickerViewController/Classes/**/*'
   
