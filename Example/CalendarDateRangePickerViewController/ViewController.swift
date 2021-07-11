@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         dateRangePickerViewController.selectedBackgroundColor = .purple
         dateRangePickerViewController.monthColor = .red
         
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.green, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], for: .normal)
+
         let navigationController = UINavigationController(rootViewController: dateRangePickerViewController)
         self.navigationController?.present(navigationController, animated: true, completion: nil)
     }

@@ -63,15 +63,6 @@ public class CalendarDateRangePickerViewController: UICollectionViewController {
             maximumDate = Calendar.current.date(byAdding: .year, value: 3, to: minimumDate)
         }
         
-    }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: dateColor, NSAttributedString.Key.font: dayFont], for: .normal)
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: dateColor, NSAttributedString.Key.font: dayFont], for: .selected)
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: dateColor, NSAttributedString.Key.font: dayFont], for: .highlighted)
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: dateColor, NSAttributedString.Key.font: dayFont], for: .focused)
-        
         if self.navigationController?.navigationBar != nil {
             let textAttributes = [NSAttributedString.Key.foregroundColor: monthColor,
                                   NSAttributedString.Key.font: titleTextFont]
