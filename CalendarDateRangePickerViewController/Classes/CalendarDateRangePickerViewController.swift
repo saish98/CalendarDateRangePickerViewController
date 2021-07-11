@@ -34,6 +34,7 @@ public class CalendarDateRangePickerViewController: UICollectionViewController {
     public var selectedBackgroundColor = UIColor(red: 66/255.0, green: 150/255.0, blue: 240/255.0, alpha: 1.0)
 
     public var titleText = "Select Dates"
+    public var titleTextFont = UIFont.systemFont(ofSize: 18)
     
     public var monthFont = UIFont.systemFont(ofSize: 17)
     public var dayFont = UIFont.systemFont(ofSize: 14)
@@ -63,15 +64,18 @@ public class CalendarDateRangePickerViewController: UICollectionViewController {
         }
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(CalendarDateRangePickerViewController.didTapCancel))
-        self.navigationItem.leftBarButtonItem?.tintColor = dateColor
+//        self.navigationItem.leftBarButtonItem?.tintColor = dateColor
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(CalendarDateRangePickerViewController.didTapDone))
-        self.navigationItem.rightBarButtonItem?.tintColor = dateColor
+//        self.navigationItem.rightBarButtonItem?.tintColor = dateColor
         self.navigationItem.rightBarButtonItem?.isEnabled = selectedStartDate != nil && selectedEndDate != nil
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: dateColor, NSAttributedString.Key.font: dayFont], for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: dateColor, NSAttributedString.Key.font: dayFont], for: .selected)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: dateColor, NSAttributedString.Key.font: dayFont], for: .highlighted)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: dateColor, NSAttributedString.Key.font: dayFont], for: .focused)
 
         if self.navigationController?.navigationBar != nil {
             let textAttributes = [NSAttributedString.Key.foregroundColor: monthColor,
-                                  NSAttributedString.Key.font: monthFont]
+                                  NSAttributedString.Key.font: titleTextFont]
             self.navigationController?.navigationBar.titleTextAttributes = textAttributes
         }
     }
