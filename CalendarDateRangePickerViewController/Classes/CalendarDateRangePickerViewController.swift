@@ -63,11 +63,12 @@ public class CalendarDateRangePickerViewController: UICollectionViewController {
         }
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(CalendarDateRangePickerViewController.didTapCancel))
-        self.navigationItem.leftBarButtonItem?.tintColor = dayColor
+        self.navigationItem.leftBarButtonItem?.tintColor = dateColor
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(CalendarDateRangePickerViewController.didTapDone))
-        self.navigationItem.rightBarButtonItem?.tintColor = dayColor
+        self.navigationItem.rightBarButtonItem?.tintColor = dateColor
         self.navigationItem.rightBarButtonItem?.isEnabled = selectedStartDate != nil && selectedEndDate != nil
-        
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: dateColor, NSAttributedString.Key.font: dayFont], for: .normal)
+
         if self.navigationController?.navigationBar != nil {
             let textAttributes = [NSAttributedString.Key.foregroundColor: monthColor,
                                   NSAttributedString.Key.font: monthFont]
